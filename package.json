@@ -16,7 +16,7 @@
     "format:check": "pnpm -r format:check",
     "---------------------- CONTRACTS ----------------------": "",
     "contracts:node:local": "ldenv pnpm run --filter ./contracts node:local",
-    "contracts:deploy": "ldenv pnpm run --filter ./contracts deploy @@MODE @@",
+    "contracts:deploy": "pnpm run --filter ./contracts deploy",
     "contracts:fork:deploy": "ldenv pnpm run --filter ./contracts fork:deploy @@MODE @@",
     "contracts:test": "ldenv pnpm run --filter ./contracts test",
     "contracts:lint": "pnpm --filter ./contracts lint",
@@ -33,5 +33,6 @@
     "---------------------- START ----------------------": "",
     "stop": "pnpm run --filter ./contracts stop",
     "start": "pnpm run --filter ./contracts start"
-  }
+  },
+  "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387"
 }

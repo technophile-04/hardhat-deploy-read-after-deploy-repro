@@ -24,14 +24,18 @@ git clone <this-repo>
 cd <this-repo>
 pnpm install
 
-# Override the placeholder PK with one that has OP Sepolia ETH:
-echo 'DEPLOYER_PRIVATE_KEY="0x<your-funded-key>"' > contracts/.env.local
+# .env is gitignored. Copy the example and replace DEPLOYER_PRIVATE_KEY
+# with a key that has OP Sepolia ETH:
+cp contracts/.env.example contracts/.env
+$EDITOR contracts/.env
 
 # Trigger the race (--reset forces a fresh tx every run):
-pnpm contracts:deploy --network optimism-sepolia --reset
+pnpm contracts:deploy --network optimismSepolia --reset
 ```
 
-The `.env` ships with Alchemy URLs preset to scaffold-eth-2's public shared fallback key, so reviewers only need a funded testnet PK. The race is most reliably triggered on Alchemy infra; the public Optimism / Base endpoints work too but are flakier.
+The `.env.example` ships Alchemy URLs preset to scaffold-eth-2's public shared fallback key, so reviewers only need a funded testnet PK. The race is most reliably triggered on Alchemy infra; the public Optimism / Base endpoints work too but are flakier.
+
+Requires Node ≥ 22.13.0 (hardhat 3 minimum).
 
 Expected error (hits ~50% of runs, more often if you re-run quickly):
 
