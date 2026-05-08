@@ -16,9 +16,6 @@ export const config = {
 		deployer: {
 			default: 0,
 		},
-		admin: {
-			default: 1,
-		},
 	},
 	environments: {
 		localhost: {
