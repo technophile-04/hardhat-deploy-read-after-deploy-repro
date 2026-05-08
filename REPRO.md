@@ -31,6 +31,8 @@ echo 'DEPLOYER_PRIVATE_KEY="0x<your-funded-key>"' > contracts/.env.local
 pnpm contracts:deploy --network optimism-sepolia --reset
 ```
 
+The `.env` ships with Alchemy URLs preset to scaffold-eth-2's public shared fallback key, so reviewers only need a funded testnet PK. The race is most reliably triggered on Alchemy infra; the public Optimism / Base endpoints work too but are flakier.
+
 Expected error (hits ~50% of runs, more often if you re-run quickly):
 
 ```
