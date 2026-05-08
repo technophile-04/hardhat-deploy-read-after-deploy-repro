@@ -74,6 +74,18 @@ const config: HardhatUserConfig = {
 								interval: 3000,
 							},
 						},
+						// Testnets where the read-after-deploy race reproduces.
+						// Reviewers set DEPLOYER_PRIVATE_KEY in .env (a key with testnet ETH).
+						optimismSepolia: {
+							type: 'http',
+							url: process.env.ETH_NODE_URI_OPTIMISM_SEPOLIA || 'https://sepolia.optimism.io',
+							accounts: process.env.DEPLOYER_PRIVATE_KEY ? [process.env.DEPLOYER_PRIVATE_KEY] : [],
+						},
+						baseSepolia: {
+							type: 'http',
+							url: process.env.ETH_NODE_URI_BASE_SEPOLIA || 'https://sepolia.base.org',
+							accounts: process.env.DEPLOYER_PRIVATE_KEY ? [process.env.DEPLOYER_PRIVATE_KEY] : [],
+						},
 					},
 				),
 			),
